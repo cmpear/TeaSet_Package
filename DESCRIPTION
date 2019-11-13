@@ -1,0 +1,26 @@
+Package: TeaSet
+Type: Package
+Title: Creates ternary plots
+Version: 0.1.0
+Author: Christopher M Pearson
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: 
+    Creates ternary plots--allowing both inverted 
+    converts ternary-coordinates to xy-coordinates.  
+    Allows the drawing of lines and segments using ternary data.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Suggests: 
+    knitr,
+    rmarkdown,
+Imports:
+    qpdf,
+    dplyr
+Depends:
+    methods,
+    graphics,
+    stats
+VignetteBuilder: knitr
+
