@@ -8,6 +8,7 @@ Description:
     Creates ternary plots--allowing both inverted 
     converts ternary-coordinates to xy-coordinates.  
     Allows the drawing of lines and segments using ternary data.
+    Licensed under GNU GPL-3.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
@@ -15,6 +16,7 @@ RoxygenNote: 6.1.1
 Suggests: 
     knitr,
     rmarkdown,
+    testthat
 Imports:
     qpdf,
     dplyr
@@ -23,4 +25,3 @@ Depends:
     graphics,
     stats
 VignetteBuilder: knitr
-

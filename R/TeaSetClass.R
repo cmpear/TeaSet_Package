@@ -369,7 +369,7 @@ TeaSet <- setRefClass("TeaSet",
                            }
                            start <- start + c(0,heightIncThird*2)  # one third to get to the edge, another to the new center
                          }
-                         return(0)
+                         #return(0)
                        }, # close tea_gradient_background
                        tea_ticks = function(axes=4, col.axis = "grey"){
                          "Draws tick-lines for all three axes and labels them."
@@ -550,22 +550,15 @@ TeaSet <- setRefClass("TeaSet",
                          if (is.matrix(x) || is.data.frame(x)){
                            return(apply(x,MARGIN = 1, FUN = p_redistribute_negatives))
                          }
-                         these <- x<0
-                         add   <- c(0,0,0)
-                         if (these[1]){
-                           add[2] <- add[2] - x[1]/2   # x is -1, so this works like addition
-                           add[3] <- add[3] - x[1]/2
+                         if (x[1]<0){
+                           x<- x - x[1]
                          }
-                         if (these[2]){
-                           add[1] <- add[1] - x[2]/2
-                           add[3] <- add[3] - x[2]/2
+                         if (x[2]<0){
+                           x<- x - x[2]
                          }
-                         if (these[3]){
-                           add[1] <- add[1] - x[3]/2
-                           add[2] <- add[2] - x[3]/2
+                         if (x[3]<0){
+                           x<- x - x[3]
                          }
-                         x[these]<- 0
-                         x <- x + add
                          return(x)
                        }, # close p_redistribute_negatives
                        p_normalize_ternary_pt = function(x = myCoord){
@@ -584,7 +577,9 @@ TeaSet <- setRefClass("TeaSet",
                            }
                          }
                          x <- p_redistribute_negatives(x)
-                         x <- x/sum(x)
+                         if(sum(x)!=0){
+                           x <- x/sum(x)
+                         }
                          return(x)
                        }, # close p_normalize_ternary_pt
                        p_section_key = function(x = NULL){
