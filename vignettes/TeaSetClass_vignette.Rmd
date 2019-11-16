@@ -90,7 +90,7 @@ testData %>%
 ```{r hidden2, eval=FALSE, include=FALSE}
 ```
 
-# myStretch, myCenter, and set_frame()
+## myStretch, myCenter, and set_frame()
     Those looking to incorporate a ternary plot into their visuals could be more interested in incorporating it into a large plot rather than having it stand alone.  One may also be interested in plotting several ternary plots in the same visual.  While par() and layout() offer many options, TeaSet comes with some built-in options to move and stretch the t-plot.  This is the set_frame() function, which either takes a frame in the form a list of two x-coordinates and another of two y-coordinates, or one can input the new center and horizontal/vertical stretch directly.  If inplace=TRUE, these will be used to overwrite the TeaSet object's myCenter and myStretch, and update myIJK.  To reset these to default, one can simply input set_frame(inplace=TRUE), and the argument defaults will return the plot to default inputs.
     Moving the frame around while graphing requires the use of the tea_plot() method, as one needs a TeaSet object with non-default myCenter, myStretch and myIJK values.  The quick_tea_plot() function simply creates a TeaSet object and then calls tea_plot().
 ```{r Fig5, fig.height=5, fig.width=7.2}
@@ -114,7 +114,7 @@ teaSet$tea_plot(newPlot=FALSE,main="Plot5",pch=17,cex=1.5,axis.labels=TRUE)
 ```
 
 
-# Drawing
+## Drawing
     Always trying to shift from an xy-coordinate system to ternary coordinates can be rather difficult, and involve a lot of trigonometry.  To this purpose, three drawing functions have been provided to make it easier to draw lines, line segments, and triangles in a ternary space.  These functions are: tea_lines(), tea_segments(), and tea_triangles().  All three functions are tied to myCenter, myStretch and myIJK, so they will always draw properly within the frame of their TeaSet object.
     The tea_triangles() method draws a triangle similar to the area of a t-plot.  If that area is stretched vertically or horizontally, so too will the tea_triangle().  This makes it useful for drawing the outline of a ternary plot, or creating triangles within it.  The key parameters in a tea_triangle are r, which represents its size relative to the TeaSet object's border triangle; and xy, which determines where to draw the triangle.  If jCorner=TRUE, this will be the corner indicated by the j-vecotr, otherwise it indicates the center of the tea_triangle.  One can even input negative values for r to get an inverted triangle.
     The flexibility of tea_triangle() is shown with the tea_gradient_background() function, which creates rows of using the tea_triangle() method of slighlty varying colors.  The more rows specified, the finer the gradient is--but at rows=100, the function is drawing 5,050 triangles, which may slow one's program.  One can also specify alpha, which controls how transparent the background is.
@@ -166,6 +166,6 @@ polygon(poly[c(1,3,4,2),],col="blue")
 ```{r hidden3, eval=FALSE, include=FALSE}
 ```
 
-# Conclusion
+## Conclusion
   I hope this has been a useful demonstration of TeaSet's plotting capabilities.  This is a new package though, so I would appreciate your feedback on any errors or features that should be added.
 
