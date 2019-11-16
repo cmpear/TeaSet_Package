@@ -136,6 +136,7 @@ returns<-teaSet$tea_lines(y=1:9/10, overDraw = c(TRUE,FALSE),col='black',lwd=3,l
 
 returns<-teaSet$set_frame(inplace=TRUE)
 ```
+### More on tea_lines() and tea_segments()
    The tea_lines() function ultimately calls the tea_segments() function, which simply converts t-coordinates to xy-coordinates and then calls the normal segments() function to draw the line.  The tea_segments() function works with a variety of inputs.  The "normal" way to call it would be two 3-length lists representing t-points, but it also works with a 6-length list representing two t-points.  Likewise, it can handle 3-column and 6-column matrices.
 ```{r Fig7, fig.height=5, fig.width=7.2}
 layout(matrix(1:2, nrow=1, byrow = TRUE))
@@ -149,6 +150,9 @@ plot(teaSet$get_ijk(), type = 'n', frame.plot=FALSE,axes=FALSE,ylab="",xlab="",m
 teaSet$tea_gradient_background(rows=50,alpha=1)
 returns<-teaSet$tea_segments(test,lwd=3)
 ```
+```{r hidden3, eval=FALSE, include=FALSE}
+```
+### Quick Triangle
     There is also a quick_triangle() function to allow the use of tea_triangles without needing to create a TeaSet object.  It follows the same parameters: r to indicate the size of the similar triangle, and center to indicate where to draw it.  However, this is best understood as a wrapper aroundthe polygon function, and does not rely on creating a TeaSet object within itself.  As it does not rely on myStretch, these are always equilateral triangles.
     One final aspect of all of these function is that they have a draw=T/F paramter, and they return the coordinates used to draw them.  Thus, one could call the tea_lines() function simply to get the coordinates to input into another geometric function.  However, this is not the most wieldy way to draw polygons.
 ```{r Fig8, fig.height=5, fig.width=7.2}

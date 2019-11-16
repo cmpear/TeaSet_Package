@@ -3,7 +3,7 @@ Type: Package
 Title: Creates ternary plots
 Version: 0.1.0
 Author: Christopher M Pearson
-Maintainer: The package maintainer <yourself@somewhere.net>
+Maintainer: Christopher M Pearson <cmpear@uw.edu>
 Description: 
     Creates ternary plots--allowing both inverted 
     converts ternary-coordinates to xy-coordinates.  
